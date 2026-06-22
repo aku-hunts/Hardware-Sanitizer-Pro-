@@ -1,91 +1,85 @@
-# Hardware Sanitizer Pro 🧼💻
+# Hardware Sanitizer Pro
 
-Hardware Sanitizer Pro is a lightweight, open-source utility designed to temporarily lock down input peripherals on your computer. It allows you to safely wipe down, spray, and sanitize your keyboard, mouse, and laptop trackpad without triggering phantom keystrokes, accidental clicks, or system execution errors. 
+Hardware Sanitizer Pro is a lightweight utility designed to temporarily disable keyboard, mouse, and trackpad input while you clean your device. Whether you're wiping down your keyboard, cleaning a laptop trackpad, or dusting your mouse, the application helps prevent accidental key presses, clicks, shortcuts, and unwanted system actions.
 
-By intercepting inputs at the OS kernel level, it acts as a digital shield for your machine during physical maintenance.
+Built with Python and Tkinter, the tool provides a simple interface while running input suppression in the background. A built-in countdown timer automatically restores control after a cleaning session, ensuring you never remain locked out of your computer.
 
----
+## Features
 
-## Key Features 🌟
+* Keyboard input suppression
+* Mouse and trackpad locking
+* Support for wired and wireless peripherals
+* Automatic unlock countdown
+* Clean and lightweight Tkinter interface
+* Background-threaded operation
+* Fail-safe recovery system
+* Open-source and easy to modify
 
-* **Total Peripheral Lockout**: Suppresses all standard keys, modifier combinations, mouse movements, trackpad gestures, scrolling, and physical clicks.
-* **Smart Auto-Unlock Countdown**: An automated 30-second security timer ensures your system gracefully restores native input control even if you step away.
-* **Emergency Escape Route**: Built-in global hotkey breakthrough (`Ctrl + Shift + U`) allows you to immediately bypass active mouse-locking and regain manual control instantly.
-* **Thread-Isolated UI**: The asynchronous background execution architecture keeps the visual display alive, fluid, and responsive while hardware layers are frozen.
-* **Failsafe Window Protocol**: Automatically disarms all low-level operational hooks if the interface window is suddenly terminated, ensuring your system never ends up stuck.
+## Installation
 
----
+1. Clone or download the project.
+2. Install the required dependency:
 
-## Installation & Setup 🛠️
-
-### 1. Prerequisites
-Make sure you have [Python 3.8+](https://python.org) installed on your machine.
-
-### 2. Clone or Download the Project
-Download the repository files to your local machine:
-```bash
-git clone https://github.com
-cd hardware-sanitizer-pro
-```
-
-### 3. Install Dependencies
-This project utilizes external system hooks requiring the `keyboard` and `pynput` libraries. Install them via your terminal:
 ```bash
 pip install -r requirements.txt
 ```
-*(If you do not have a requirements file, simply run: `pip install keyboard pynput`)*
 
----
+Or:
 
-## How To Run 🚀
+```bash
+pip install pynput
+```
 
-Because this tool hooks directly into low-level operating system input streams to manage hardware suppression, it **must** be executed with elevated administrative privileges.
+## Running
 
-### 🪟 Windows
-1. Open your terminal or Command Prompt **as Administrator** (Right-click -> Run as Administrator).
-2. Execute the script:
-   ```bash
-   python main.py
-   ```
+### Windows
 
-### 🐧 Linux & 🍏 macOS
-Launch the script utilizing the `sudo` boundary prefix to allow kernel hook bindings:
+```bash
+python main.py
+```
+
+### Linux
+
 ```bash
 sudo python3 main.py
 ```
 
----
+### macOS
 
-## Technical Architecture ⚙️
+```bash
+sudo python3 main.py
+```
 
-The software utilizes a dual-layer interception architecture to reliably achieve input suppression:
-1. **System Hook Interception**: Uses low-level operating system hooks to capture and drop keyboard events (`keyboard.suppress`) before they reach the window manager loop.
-2. **Event Loop Truncation**: Leverages `pynput` to spawn an isolated background thread that listens to mouse/trackpad events and explicitly returns `False`, neutralizing inputs safely at the driver callback boundary.
+Note: Some operating systems may require elevated permissions for input interception.
 
----
+## How to Use
 
-## License 📄
+1. Launch the application.
+2. Press the lock button.
+3. Clean your keyboard, mouse, or trackpad.
+4. Wait for the countdown to finish.
+5. Input devices are automatically restored.
 
-This project is licensed under the **MIT License**. 
+## Requirements
+
+* Python 3.8+
+* pynput 1.7.6+
+
+## Project Structure
 
 ```text
-Copyright (c) 2026 Your Name
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Hardware-Sanitizer-Pro/
+├── main.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
+
+## Disclaimer
+
+This software is provided for convenience and educational purposes. Input suppression behavior may vary depending on operating system limitations, permissions, and connected hardware. Always test the application before relying on it for critical use.
+
+## License
+
+Released under the MIT License. See the LICENSE file for more information.
