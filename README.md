@@ -35,19 +35,19 @@ pip install pynput
 ### Windows
 
 ```bash
-python main.py
+python Cleaner.py
 ```
 
 ### Linux
 
 ```bash
-sudo python3 main.py
+sudo python3 Cleaner.py
 ```
 
 ### macOS
 
 ```bash
-sudo python3 main.py
+sudo python3 Cleaner.py
 ```
 
 Note: Some operating systems may require elevated permissions for input interception.
@@ -57,8 +57,7 @@ Note: Some operating systems may require elevated permissions for input intercep
 1. Launch the application.
 2. Press the lock button.
 3. Clean your keyboard, mouse, or trackpad.
-4. Wait for the countdown to finish.
-5. Input devices are automatically restored.
+4. Input devices are automatically restored.
 
 ## Requirements
 
@@ -69,11 +68,10 @@ Note: Some operating systems may require elevated permissions for input intercep
 
 ```text
 Hardware-Sanitizer-Pro/
-├── main.py
+├── Cleaner.py
 ├── requirements.txt
 ├── README.md
 ├── LICENSE
-└── .gitignore
 ```
 
 ## Disclaimer
