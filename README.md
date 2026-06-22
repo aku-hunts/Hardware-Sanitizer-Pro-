@@ -1,83 +1,38 @@
 # Hardware Sanitizer Pro
 
-Hardware Sanitizer Pro is a lightweight utility designed to temporarily disable keyboard, mouse, and trackpad input while you clean your device. Whether you're wiping down your keyboard, cleaning a laptop trackpad, or dusting your mouse, the application helps prevent accidental key presses, clicks, shortcuts, and unwanted system actions.
+Hardware Sanitizer Pro is a compact Tkinter desktop app for cleaning your keyboard, mouse, trackpad, and connected peripherals without accidental input. It temporarily suppresses keyboard and pointer events for a fixed 30-second cleaning window, shows a live countdown, and restores input automatically when the timer ends.
 
-Built with Python and Tkinter, the tool provides a simple interface while running input suppression in the background. A built-in countdown timer automatically restores control after a cleaning session, ensuring you never remain locked out of your computer.
+The app uses a neon v2.0 interface and supports a bundled app icon at `assets/app_icon.png`.
 
 ## Features
 
-* Keyboard input suppression
-* Mouse and trackpad locking
-* Support for wired and wireless peripherals
-* Automatic unlock countdown
-* Clean and lightweight Tkinter interface
-* Background-threaded operation
-* Fail-safe recovery system
-* Open-source and easy to modify
+- 30-second cleaning lock with automatic unlock.
+- Global keyboard suppression through `pynput` while the lock is active.
+- Mouse and trackpad suppression for movement, clicks, and scrolling.
+- Support for wired, wireless, Bluetooth, RF, and other HID-style peripherals when the OS allows global hooks.
+- Live countdown and progress bar.
+- Window-close cleanup that stops active listeners before exiting.
+- Clear error state if operating-system permissions block input hooks.
+- Bundled keyboard-cleaner app icon.
 
-## Installation
+## Safety and Permissions
 
-1. Clone or download the project.
-2. Install the required dependency:
+Input suppression depends on your operating system, security settings, and desktop session. Test the app before depending on it, and never use it as a security or access-control lock.
 
-```bash
-pip install -r requirements.txt
-```
+Platform guidance:
 
-Or:
-
-```bash
-pip install pynput
-```
-
-## Running
-
-### Windows
-
-```bash
-python Cleaner.py
-```
-
-### Linux
-
-```bash
-sudo python3 Cleaner.py
-```
-
-### macOS
-
-```bash
-sudo python3 Cleaner.py
-```
-
-Note: Some operating systems may require elevated permissions for input interception.
-
-## How to Use
-
-1. Launch the application.
-2. Press the lock button.
-3. Clean your keyboard, mouse, or trackpad.
-4. Input devices are automatically restored.
+- **Windows:** run normally first; if suppression is incomplete, run your terminal as Administrator.
+- **macOS:** grant Accessibility/Input Monitoring permissions to Terminal, Python, or your IDE in System Settings.
+- **Linux:** global hooks may require an X11 session and elevated privileges. Wayland sessions often restrict this type of input interception.
 
 ## Requirements
 
-* Python 3.8+
-* pynput 1.7.6+
+- Python 3.8 or newer
+- Tkinter, included with most Python installers
+- `pynput`, installed from `requirements.txt`
+- `pyinstaller`, only needed if you want to build the app/executable
 
-## Project Structure
+## Installation
 
-```text
-Hardware-Sanitizer-Pro/
-├── Cleaner.py
-├── requirements.txt
-├── README.md
-├── LICENSE
-```
-
-## Disclaimer
-
-This software is provided for convenience and educational purposes. Input suppression behavior may vary depending on operating system limitations, permissions, and connected hardware. Always test the application before relying on it for critical use.
-
-## License
-
-Released under the MIT License. See the LICENSE file for more information.
+```bash
+python -m pip install -r requirements.txt
